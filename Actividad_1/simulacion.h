@@ -6,25 +6,27 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <iomanip>
 
 class Simulacion {
-private:
-    std::vector<Particula> particulas;
-    std::vector<Obstaculo> obstaculos;
-    double anchoMundo, altoMundo;
-    double deltaTiempo;
-    double tiempoActual;
-    std::ofstream archivoSalida;
-
-    void registrarPosiciones();
-    void registrarColision(const std::string& tipo);
-
 public:
     Simulacion(double ancho, double alto, double dt);
     ~Simulacion();
+
     void agregarParticula(const Particula& p);
     void agregarObstaculo(const Obstaculo& obs);
     void ejecutar(double duracion);
+
+private:
+    double anchoMundo, altoMundo, deltaTiempo, tiempoActual;
+    std::vector<Particula> particulas;
+    std::vector<Obstaculo> obstaculos;
+    std::ofstream archivoSalida;
+
+    int cntPared, cntObstaculo, cntParticula;
+
+    void registrarPosiciones();
+    void registrarColision(const std::string& tipo);
 };
 
-#endif
+#endif // SIMULACION_H

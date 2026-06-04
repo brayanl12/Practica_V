@@ -7,9 +7,14 @@
 
 class GestorColisiones {
 public:
-    static void manejarColisionPared(Particula& p, double xMin, double xMax, double yMin, double yMax);
-    static void manejarColisionObstaculo(Particula& p, const Obstaculo& obs);
-    static bool manejarColisionParticulaParticula(Particula& p1, Particula& p2, std::vector<Particula>& particulas);
+    static bool manejarColisionPared(Particula& p,
+                                     double xMin, double xMax,
+                                     double yMin, double yMax);
+
+    static bool manejarColisionObstaculo(Particula& p, const Obstaculo& obs);
+
+    static bool manejarColisionParticulaParticula(Particula& p1, Particula& p2,
+                                                  std::vector<Particula>& particulas);
 };
 
-#endif
+#endif // GESTORCOLISIONES_H
